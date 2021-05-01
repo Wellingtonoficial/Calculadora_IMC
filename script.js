@@ -1,61 +1,56 @@
-var sexo = document.getElementsByClassName('sexo').value
-var idade = document.getElementsByClassName('idade')
-var altura = document.getElementsByClassName('altura')
-var peso = document.getElementsByClassName('peso')
 
 
-var classificacao = '';
+let calcular = document.getElementById('calcular');
 
-idade = parseFloat(idade);
+idade = parseInt(idade);
 altura = parseFloat(altura);
 peso = parseFloat(peso);
 
 
-altura = altura / 100;
+function imc () {
+    let nome = document.getElementById('nomejs').value;
+    let idade = document.getElementById('idadejs').value;
+    let altura = document.getElementById('alturajs').value;
+    let peso = document.getElementById('pesojs').value;
+    let resultado = document.getElementById('resultado1');
 
-var soma =  peso / (altura * altura);
+    if ( nome !== '' && idade !== '' &&  altura !== '' &&  peso !== ''){
+        
+        altura = altura / 100
+        valorIMC = (peso / (altura * altura)).toFixed(2);
 
+        let classificacao = "";
 
-if (soma <= 16){
-    classificacao = 'Baixo peso muito grave'
+        if (valorIMC <= 16){
+            classificacao = ' A baixo peso muito grave'
+        }
+        else if (valorIMC > 16 && valorIMC <= 16.99){
+            classificacao = 'A baixo peso grave'
+        }
+        else if (valorIMC >= 17 && valorIMC <= 18.49){
+           classificacao = 'Com baixo peso'
+        }
+        else if (valorIMC >= 18.50 && valorIMC <= 24.99){
+           classificacao = 'Com peso normal'
+        }
+        else if (valorIMC >= 25 && valorIMC <= 29.99){
+            classificacao = 'Com sobrepeso'
+        }    
+        else if (valorIMC >= 30 && valorIMC <= 34.99){
+            classificacao ='Com obesidade grau 1'
+        }
+        else if (valorIMC >= 35 && valorIMC <= 39.99){
+            classificacao = 'Com obesidade grau 2'
+        }
+        else {
+            classificacao = 'Com obesidade grau 3'
+        }
 
-    document.getElementById('dieta').innerHTML='Coma muito'
-}
-else if (soma > 16 && soma <= 16.99){
-    classificacao = 'Baixo peso grave'
+        resultado.textContent = `Olá ${nome}, com  ${idade} anos seu índice de massa corporal é ${valorIMC} e você está ${classificacao}`
+    }
+    else{
+        resultado.textContent = 'Preencha todos os campos!';
+    }
+};
 
-    document.getElementById('dieta').innerHTML='Coma muito 2'
-}
-else if (soma >= 17 && soma <= 18.49){
-   classificacao = 'Baixo peso'
-
-   document.getElementById('dieta').innerHTML='Coma mais'
-}
-else if (soma >= 18.50 && soma <= 24.99){
-   classificacao = 'Peso normal'
-
-   document.getElementById('dieta').innerHTML='tranquilo'
-}
-else if (soma >= 25 && soma <= 29.99){
-    classificacao = 'Sobrepeso'
-
-    document.getElementById('dieta').innerHTML='diminua mais'
-}    
-else if (soma >= 30 && soma <= 34.99){
-    classificacao ='Obesidade grau 1'
-
-    document.getElementById('dieta').innerHTML='coma menos'
-}
-else if (soma >= 35 && soma <= 39.99){
-    classificacao = 'Obesidade grau 2'
-
-    document.getElementById('dieta').innerHTML='Não coma'
-}
-else {
-    classificacao = 'Obesidade grau 3'
-
-    document.getElementById('dieta').innerHTML='Não coma'
-}
-
-document.getElementById('resultado').innerHTML= nome + ' possui índice de massa corporal igual a ' + soma + ', sendo classificado como: ' + classificacao + '.'
-
+calcular.addEventListener('click', imc); //Efeito igual "onclick"
