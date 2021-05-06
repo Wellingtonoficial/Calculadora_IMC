@@ -5,4 +5,4 @@ Olá, quer saber se você está  com o peso ideal ? Então faça o teste agora m
 
 [Acesse a calculadora](https://wellingtonoficial.github.io/Calculadora_IMC/)
 
-![imc-calculadora](https://user-images.githubusercontent.com/81135377/116769986-9c1bc480-aa16-11eb-8cbe-7da06fedce34.png)
+![calculadora-imc](https://user-images.githubusercontent.com/81135377/117353932-2638b280-ae87-11eb-8795-73eab337a608.png)
