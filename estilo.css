@@ -157,3 +157,15 @@ botao
      font-size: 1.1em;
      color: rgb(224, 224, 224);
  }
+
+
+
+
+
+ @media (max-width: 428px){
+
+    .div-geral-col{
+        width: 350px;
+    
+    }
+ }
